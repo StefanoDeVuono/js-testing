@@ -1,0 +1,20 @@
+{
+  "name": "js-testing",
+  "version": "1.0.0",
+  "description": "JS TDD based on http://jrsinclair.com/articles/2016/gentle-introduction-to-javascript-tdd-intro/ and using tape to make tests (based on https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4#.17u3895hd)",
+  "main": "flickr-fetcher-spec.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "tape": "^4.5.1"
+  },
+  "scripts": {
+    "test": "babel-node flickr-fetcher-spec.js | faucet"
+  },
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": ["es2015"]
+  }
+}
