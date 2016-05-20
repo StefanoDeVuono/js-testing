@@ -2,8 +2,6 @@ var FlickrFetcher;
 
 FlickrFetcher = {
   photoObjToURL: function(photoObj) {
-    // return 'https://farm' + photoObj.farm + '.staticflickr.com/' + photoObj.server +
-    //  '/' + photoObj.id + '_' + photoObj.secret + '_b.jpg';
     return `https://farm${photoObj.farm}.staticflickr.com/` +
            `${photoObj.server}/${photoObj.id}_${photoObj.secret}_b.jpg`;
   },
@@ -14,6 +12,9 @@ FlickrFetcher = {
     }
   },
   fetchFlickerData: function(apiKey, fetch) {
+    if ((!fetch) && (typeof jQuery !== 'undefined')) {
+      fetch = jQuery.getJSON.bind(jQuery);
+    }
     let url = `https://api.flickr.com/services/rest/?` +
       `method=flickr.photos.search&api_key=${apiKey}&` +
       `text=pugs&format=json&nojsoncallback=1`;
@@ -21,4 +22,6 @@ FlickrFetcher = {
   }
 };
 
-module.exports = FlickrFetcher;
+if ((typeof module !== 'undefined') && (typeof module.exports !== 'undefined')) {
+  module.exports = FlickrFetcher;
+}
